@@ -1,60 +1,105 @@
 Experience live website:  https://sheetsbyvinaykarthik-c6fa10.netlify.app/
 
 
+
+
+
+
 Google Sheets Clone
 
 Overview
 
-This project is a clone of Google Sheets, offering a simple yet functional spreadsheet application built with web technologies. It supports essential spreadsheet functionalities, such as editing cells, styling text, applying formulas, and managing multiple sheets. The project is designed to be lightweight and user-friendly, providing a rich experience akin to the Google Sheets interface.
+This project is a functional clone of Google Sheets, offering a lightweight and user-friendly spreadsheet application. It replicates essential spreadsheet functionalities and introduces advanced features such as drag-and-drop operations, formula handling, data validation, and formatting, making it a powerful tool for data management and analysis.
 
 Features
 
-Cell Formatting: Customize font family, size, bold, italic, underline, text alignment, and text/background colors.
-Formula Support: Apply formulas like SUM, COUNT, TRIM, and UPPER directly in the formula bar.
-Multi-Sheet Management: Add and switch between multiple sheets seamlessly.
-Grid Navigation: Interactive headers and rows for easy reference and navigation.
-Save and Open: Options to download and upload sheets.
-Responsive Design: Optimized layout for various screen sizes.
-Preloader Animation: A sleek loading animation during page load.
+
+
+
+1. Spreadsheet Interface
+Google Sheets-Like UI: A visual design that closely mirrors Google Sheets, including a toolbar, formula bar, and structured grid layout.
+Drag-and-Drop Support: Allows dragging content, formulas, and cell selections to replicate Google Sheets' interactive behavior.
+Cell Dependencies: Accurate formula updates when changes are made to related cells, ensuring real-time data coherence.
+Basic Formatting Options:
+Bold, italics, underline.
+Font size and color customization.
+Background color adjustments.
+Row and Column Management:
+Add, delete, and resize rows and columns dynamically.
+
+
+
+
+
+2. Mathematical Functions
+Support for core mathematical operations:
+
+SUM: Calculates the sum of a range of cells.
+AVERAGE: Computes the average value of a range.
+MAX: Retrieves the maximum value in a range.
+MIN: Retrieves the minimum value in a range.
+COUNT: Counts the number of numerical values in a range.
+3. Data Quality Functions
+TRIM: Removes leading and trailing whitespace from text in a cell.
+UPPER: Converts text to uppercase.
+LOWER: Converts text to lowercase.
+REMOVE_DUPLICATES: Identifies and removes duplicate rows from a selected range.
+FIND_AND_REPLACE: Enables users to search and replace specific text within a range of cells.
+4. Data Entry and Validation
+Data Entry: Supports various data types, including numbers, text, and dates.
+Validation Checks: Ensures that numeric cells contain only numbers and applies constraints for better data quality.
+
+
+
+
 Technologies Used
 
 Frontend
-HTML: To structure the web application.
-CSS: For styling, including custom layouts and responsive designs.
-JavaScript: Handles interactivity, dynamic DOM manipulation, and spreadsheet logic.
+HTML: Structures the web application.
+CSS: Enhances the application's visual design and layout, ensuring responsiveness.
+JavaScript: Implements interactivity, spreadsheet logic, and dynamic updates.
 Data Management
-JavaScript Objects: The project uses objects to represent cell states, active sheet states, and sheet data. The initialCellState object is utilized as a template for all cells, ensuring consistency across sheets.
+JavaScript Objects: Used to manage cell states, including formatting, content, and cell dependencies.
 Libraries
-Material Icons: Provides icons for UI elements like bold, italic, and alignment controls.
-Google Fonts: Ensures visually appealing text rendering.
+Material Icons: For an intuitive and visually appealing UI.
+Google Fonts: Ensures professional and readable text rendering.
+
+
+
+
+
 Data Structures
 
 Cell State
-Each cell's state is stored as an object with properties like fontFamily, fontSize, isBold, isItalic, and content.
+Each cell's state is stored as an object containing properties like formatting, content, and alignment.
 Example:
-{
-  fontFamily_data: 'monospace',
-  fontSize_data: '14',
-  isBold: false,
-  isItalic: false,
-  textAlign: 'start',
-  isUnderlined: false,
-  color: '#000000',
-  backgroundColor: '#ffffff',
-  content: ''
-}
+
+{  
+  fontFamily_data: 'monospace',  
+  fontSize_data: '14',  
+  isBold: false,  
+  isItalic: false,  
+  textAlign: 'start',  
+  isUnderlined: false,  
+  color: '#000000',  
+  backgroundColor: '#ffffff',  
+  content: ''  
+}  
 Sheet Array
-Sheets are managed using an array where each entry is an object representing the grid's cell states.
+A central array stores the states of all cells in each sheet. Each array entry corresponds to a specific sheet.
+
 Example:
-sheetsArray = [
-    { 'A1': {...}, 'A2': {...}, ... }, // Sheet 1
-    { 'A1': {...}, 'A2': {...}, ... }  // Sheet 2
-];
+
+sheetsArray = [  
+    { 'A1': {...}, 'A2': {...}, ... }, // Sheet 1  
+    { 'A1': {...}, 'A2': {...}, ... }  // Sheet 2  
+];  
 Active Sheet Management
-The activeSheetIndex keeps track of the currently active sheet, enabling seamless navigation and updates.
+activeSheetIndex: Tracks the currently active sheet.
+activeSheetObject: References the active sheet's data for seamless interaction.
 Why These Technologies and Structures?
 
-JavaScript Objects: Allow fine-grained control over each cell's state, making it easy to update properties dynamically.
-Event Listeners: Provide a responsive and interactive user experience by handling user actions like clicks and inputs.
-HTML & CSS: These standard web technologies ensure broad browser compatibility and flexibility in design.
-Array for Sheets: Offers a simple yet efficient way to manage multiple sheets, allowing scalability.
+JavaScript Objects: Provide flexibility in managing individual cell properties dynamically.
+Event Listeners: Enable responsive user interactions like click, drag, and input changes.
+Array for Sheets: Facilitates efficient and scalable management of multiple sheets.
+HTML & CSS: Ensure compatibility and adaptability across various browsers.
